@@ -2,7 +2,7 @@
 # Computing 2 Coursework Submission.
 **CID**: 02561585
 
-# Peer Review Code To Review
+## Peer Review Code To Review
 There are four files in web-app folder to review:
 index.html
 style.css
