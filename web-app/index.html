@@ -1,27 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en-gb">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Functional Peg Solitaire</title>
-    
-    <!-- Tailwind for base layout and styling -->
-    <script src="[https://cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
-    
-    <!-- Link to separated CSS -->
-    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <title>Chordle</title>
+    <link href="default.css" rel="stylesheet">
+    <link href="./assets/favicon.png" rel="icon">
+    <script src="main.js" type="module"></script>
 </head>
 <body>
-    <div id="app-container">
-        <h1 class="text-3xl font-bold text-gray-800 tracking-wide">Peg Solitaire</h1>
-        <div id="board-root"></div>
-        <div id="status-root" class="h-8 text-lg font-medium text-gray-600"></div>
-        <button id="reset-btn" class="px-6 py-2 bg-gray-800 text-white font-semibold rounded-lg shadow-md hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-75">
-            Restart Game
-        </button>
-    </div>
+    <header>
+        <h1 id="title">Chordle</h1>
+    </header>
 
-    <!-- Main Entry Point -->
-    <script type="module" src="main.js"></script>
+    <aside aria-label="Game Controls" class="sidebar" id="controls_sidebar">
+        <div class="instructions">
+            <p>1. Listen to the root chord.</p>
+            <p>2. Listen to the target chord sequence.</p>
+            <p>3. Guess the chord sequence by entering the numbers below.</p>
+        </div>
+        
+        <div class="game_info">
+            <h2>Key: <span id="current_key">C</span></h2>
+            <button id="play_root" type="button">Play Root Chord</button>
+            <button id="play_sequence" type="button">Play Target Sequence</button>
+        </div>
+        
+        <div class="keyboard" id="keyboard">
+            <div class="keyboard_row">
+                <button class="key" data-key="1" type="button">I</button>
+                <button class="key" data-key="2" type="button">ii</button>
+                <button class="key" data-key="3" type="button">iii</button>
+                <button class="key" data-key="4" type="button">IV</button>
+            </div>
+            <div class="keyboard_row">
+                <button class="key" data-key="5" type="button">V</button>
+                <button class="key" data-key="6" type="button">vi</button>
+                <button class="key" data-key="7" type="button">vii°</button>
+            </div>
+            <div class="keyboard_row">
+                <button class="key action" data-key="ENTER" type="button">ENTER</button>
+                <button class="key action" data-key="BACKSPACE" type="button" aria-label="Backspace">⌫</button>
+            </div>
+        </div>
+    </aside>
+
+    <main tabindex="-1">
+        <div id="game_board" aria-label="Chordle Grid" role="grid"></div>
+    </main>
+
+    <dialog aria-label="Game over message" id="result_dialog">
+        <h2 id="result_title">Game Over</h2>
+        <div id="result_message">The sequence was: </div>
+        <button id="play_again" type="button">Play Again</button>
+    </dialog>
 </body>
 </html>

@@ -2,17 +2,6 @@
 # Computing 2 Coursework Submission.
 **CID**: 02561585
 
-## Peer Review Code To Review
-There are four files in web-app folder to review:
-index.html
-style.css
-main.js
-logic.js
-
-Ignore index copy.html
-
-This is the submission template for your Computing 2 Applications coursework submission.
-
 ## Checklist
 ### Install dependencies locally
 This template relies on a a few packages from the Node Package Manager, npm.

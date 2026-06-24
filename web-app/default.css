@@ -1,0 +1,175 @@
+:root {
+    --banner-background: #121213;
+    --banner-height: 80px;
+    --border-width: 2px;
+    --color-gray: #3a3a3c;
+    --color-green: #2e6b28;
+    --color-text: #ffffff;
+    --color-yellow: #85701c;
+    --grid-gap: 5px;
+    --key-background: #565758;
+    --main-background: #121213;
+    --sidebar-background: #1e1e1e;
+    --sidebar-width: 300px;
+
+    font-family: "Fira Sans", sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--main-background);
+    color: var(--color-text);
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+}
+
+button {
+    background: var(--key-background);
+    border: none;
+    border-radius: 4px;
+    color: var(--color-text);
+    cursor: pointer;
+    font: inherit;
+    font-weight: bold;
+    padding: 10px;
+}
+
+button:hover,
+button:focus {
+    filter: brightness(1.2);
+}
+
+.cell {
+    align-items: center;
+    border: var(--border-width) solid var(--color-gray);
+    display: flex;
+    font-size: 1.8rem;
+    font-weight: bold;
+    height: 60px;
+    justify-content: center;
+    width: 60px;
+}
+
+.cell.gray {
+    background: var(--color-gray);
+}
+
+.cell.green {
+    background: var(--color-green);
+    border-color: var(--color-green);
+}
+
+.cell.yellow {
+    background: var(--color-yellow);
+    border-color: var(--color-yellow);
+}
+
+#game_board {
+    display: flex;
+    flex-direction: column;
+    gap: var(--grid-gap);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    width: fit-content;
+}
+
+header {
+    align-items: center;
+    background: var(--banner-background);
+    border-bottom: var(--border-width) solid var(--color-gray);
+    display: flex;
+    height: var(--banner-height);
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+}
+
+.instructions {
+    background: var(--color-gray);
+    border-radius: 4px;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-bottom: 20px;
+    padding: 15px;
+}
+
+.instructions p {
+    margin: 8px 0;
+}
+
+.keyboard {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 30px;
+}
+
+.keyboard_row {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.keyboard_row .key {
+    flex-grow: 1;
+    height: 50px;
+}
+
+.keyboard_row .key.action {
+    flex-grow: 2;
+}
+
+main {
+    height: calc(100% - var(--banner-height));
+    left: var(--sidebar-width);
+    position: absolute;
+    top: var(--banner-height);
+    width: calc(100% - var(--sidebar-width));
+}
+
+#result_dialog {
+    background: var(--sidebar-background);
+    border: var(--border-width) solid var(--color-gray);
+    color: var(--color-text);
+    padding: 2rem;
+    text-align: center;
+}
+
+#result_message {
+    margin-bottom: 20px;
+}
+
+#result_dialog::backdrop {
+    backdrop-filter: blur(2px);
+}
+
+.row {
+    display: flex;
+    gap: var(--grid-gap);
+}
+
+.sidebar {
+    background: var(--sidebar-background);
+    border-right: var(--border-width) solid var(--color-gray);
+    height: calc(100% - var(--banner-height));
+    padding: 20px;
+    position: absolute;
+    top: var(--banner-height);
+    width: var(--sidebar-width);
+}
+
+.sidebar .game_info button {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+#title {
+    margin: 0;
+}
